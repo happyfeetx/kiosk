@@ -1,0 +1,382 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BB384AEB-6082-48D9-80F1-3BB81EE2FFAD}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>KioskApp</RootNamespace>
+    <AssemblyName>KioskApp</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <LangVersion>latest</LangVersion>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\AsyncExecutionManager.cs" />
+    <Compile Include="Common\AsyncExecutor.cs" />
+    <Compile Include="Common\Attributes\AsyncEventListenerAttribute.cs" />
+    <Compile Include="Common\Attributes\ModuleAttribute.cs" />
+    <Compile Include="Common\Attributes\NotBlockedAttribute.cs" />
+    <Compile Include="Common\Attributes\RequireOwnerOrPermissions.cs" />
+    <Compile Include="Common\Attributes\RequirePrivilegedUserAttribute.cs" />
+    <Compile Include="Common\Attributes\UsageExamplesAttribute.cs" />
+    <Compile Include="Common\Attributes\UsesInteractivityAttribute.cs" />
+    <Compile Include="Common\BotConfig.cs" />
+    <Compile Include="Common\CachedGuildConfig.cs" />
+    <Compile Include="Common\ChannelEvent.cs" />
+    <Compile Include="Common\Collections\ConcurrentHashSet.cs" />
+    <Compile Include="Common\Converters\CustomActivityType.cs" />
+    <Compile Include="Common\Converters\CustomBoolConverter.cs" />
+    <Compile Include="Common\Converters\CustomIPAddressConverter.cs" />
+    <Compile Include="Common\Converters\CustomIpFormatConverter.cs" />
+    <Compile Include="Common\Converters\CustomPunishmentActionTypeConverter.cs" />
+    <Compile Include="Common\Converters\CustomTimeWindowConverter.cs" />
+    <Compile Include="Common\CustomHelpFormatter.cs" />
+    <Compile Include="Common\CustomIPFormat.cs" />
+    <Compile Include="Common\DiscordEventType.cs" />
+    <Compile Include="Common\Logger.cs" />
+    <Compile Include="Common\KRandom.cs" />
+    <Compile Include="Common\SavedTaskExecutor.cs" />
+    <Compile Include="Common\SavedTaskInfo.cs" />
+    <Compile Include="Common\StaticDiscordEmoji.cs" />
+    <Compile Include="Common\UptimeInformation.cs" />
+    <Compile Include="Database\DatabaseConfig.cs" />
+    <Compile Include="Database\DatabaseContext.cs" />
+    <Compile Include="Database\DatabaseContextBuilder.cs" />
+    <Compile Include="Database\DbContextFactory.cs" />
+    <Compile Include="Database\Models\Birthday.cs" />
+    <Compile Include="Database\Models\DatabaseGuildConfig.cs" />
+    <Compile Include="Database\Models\BankAccounts.cs" />
+    <Compile Include="Database\Models\DbBlocks.cs" />
+    <Compile Include="Database\Models\DbBotStatus.cs" />
+    <Compile Include="Database\Models\DbChicken.cs" />
+    <Compile Include="Database\Models\DbChickenBoughtUpgrade.cs" />
+    <Compile Include="Database\Models\DbChickenUpgrade.cs" />
+    <Compile Include="Database\Models\DbCmdRule.cs" />
+    <Compile Include="Database\Models\DbExempts.cs" />
+    <Compile Include="Database\Models\DbFilter.cs" />
+    <Compile Include="Database\Models\DbForbiddenname.cs" />
+    <Compile Include="Database\Models\DbGameStats.cs" />
+    <Compile Include="Database\Models\DbGuildRank.cs" />
+    <Compile Include="Database\Models\DbInsult.cs" />
+    <Compile Include="Database\Models\DbMeme.cs" />
+    <Compile Include="Database\Models\DbMsgCount.cs" />
+    <Compile Include="Database\Models\DbPrivUser.cs" />
+    <Compile Include="Database\Models\DbReaction.cs" />
+    <Compile Include="Database\Models\DbReminder.cs" />
+    <Compile Include="Database\Models\DbRssFeed.cs" />
+    <Compile Include="Database\Models\DbRssSubscription.cs" />
+    <Compile Include="Database\Models\DbSavedTask.cs" />
+    <Compile Include="Database\Models\DbSpecialRoles.cs" />
+    <Compile Include="Database\Models\DbSwatPlayer.cs" />
+    <Compile Include="Database\Models\DbSwatServer.cs" />
+    <Compile Include="Database\Models\PurchasableItem.cs" />
+    <Compile Include="Database\Models\PurchasedItem.cs" />
+    <Compile Include="EventListeners\Listeners.cs" />
+    <Compile Include="EventListeners\Listeners.Message.cs" />
+    <Compile Include="Exceptions\CommandFailedException.cs" />
+    <Compile Include="Exceptions\ConcurrentOperationException.cs" />
+    <Compile Include="Exceptions\DatabaseOperationException.cs" />
+    <Compile Include="Exceptions\InvalidCommandUsageException.cs" />
+    <Compile Include="Exceptions\ServiceDisabledException.cs" />
+    <Compile Include="Extensions\CNextExtentions.cs" />
+    <Compile Include="Extensions\CommandContextExtensions.cs" />
+    <Compile Include="Extensions\DiscordChannelExtensions.cs" />
+    <Compile Include="Extensions\DiscordClientExtensions.cs" />
+    <Compile Include="Extensions\DiscordGuildExtensions.cs" />
+    <Compile Include="Extensions\DiscordUserExtensions.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Extensions\FormatterExtensions.cs" />
+    <Compile Include="Extensions\InteractivityExtensions.cs" />
+    <Compile Include="Extensions\KeyValuePairExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="KioskApp.cs" />
+    <Compile Include="Modules\Administration\Common\AntifloodSettings.cs" />
+    <Compile Include="Modules\Administration\Common\AntiInstantLeaveSettings.cs" />
+    <Compile Include="Modules\Administration\Common\AntispamSettings.cs" />
+    <Compile Include="Modules\Administration\Common\ExemptedEntity.cs" />
+    <Compile Include="Modules\Administration\Common\Filter.cs" />
+    <Compile Include="Modules\Administration\Common\LinkfilterMatch.cs" />
+    <Compile Include="Modules\Administration\Common\LinkfilterMatcherCollection.cs" />
+    <Compile Include="Modules\Administration\Common\LinkfilterSettings.cs" />
+    <Compile Include="Modules\Administration\Common\MemberUpdateMessagesSettings.cs" />
+    <Compile Include="Modules\Administration\Common\PunishmentActionType.cs" />
+    <Compile Include="Modules\Administration\Common\RatelimitSettings.cs" />
+    <Compile Include="Modules\Administration\Common\UserRatelimitInfo.cs" />
+    <Compile Include="Modules\Administration\Common\UserSpamInfo.cs" />
+    <Compile Include="Modules\Administration\Services\AntifloodService.cs" />
+    <Compile Include="Modules\Administration\Services\AntiInstantLeaveService.cs" />
+    <Compile Include="Modules\Administration\Services\AntispamService.cs" />
+    <Compile Include="Modules\Administration\Services\LinkfilterService.cs" />
+    <Compile Include="Modules\Administration\Services\ProtectionService.cs" />
+    <Compile Include="Modules\Administration\Services\RatelimitService.cs" />
+    <Compile Include="Modules\AppModule.cs" />
+    <Compile Include="Modules\Reactions\Common\EmojiReaction.cs" />
+    <Compile Include="Modules\Reactions\Common\Reaction.cs" />
+    <Compile Include="Modules\Reactions\Common\TextReaction.cs" />
+    <Compile Include="Modules\Search\Common\GeolocationData.cs" />
+    <Compile Include="Modules\Search\Common\GoodreadsData.cs" />
+    <Compile Include="Modules\Search\Common\OMDbData.cs" />
+    <Compile Include="Modules\Search\Common\QuoteData.cs" />
+    <Compile Include="Modules\Search\Common\UrbanDictionaryData.cs" />
+    <Compile Include="Modules\Search\Common\WeatherData.cs" />
+    <Compile Include="Modules\Search\Common\WikiData.cs" />
+    <Compile Include="Modules\Search\Common\XkcdComic.cs" />
+    <Compile Include="Modules\Search\Extensions\CommonExtensions.cs" />
+    <Compile Include="Modules\Search\Extensions\DatabaseContextBuilder.Feeds.cs" />
+    <Compile Include="Modules\Search\RedditModule.cs" />
+    <Compile Include="Modules\Search\Services\GiphyService.cs" />
+    <Compile Include="Modules\Search\Services\GoodreadsService.cs" />
+    <Compile Include="Modules\Search\Services\ImgurService.cs" />
+    <Compile Include="Modules\Search\Services\IpGeolocationService.cs" />
+    <Compile Include="Modules\Search\Services\JokesService.cs" />
+    <Compile Include="Modules\Search\Services\OMDbService.cs" />
+    <Compile Include="Modules\Search\Services\PetImageService.cs" />
+    <Compile Include="Modules\Search\Services\QuoteService.cs" />
+    <Compile Include="Modules\Search\Services\RedditService.cs" />
+    <Compile Include="Modules\Search\Services\RssService.cs" />
+    <Compile Include="Modules\Search\Services\SteamService.cs" />
+    <Compile Include="Modules\Search\Services\WeatherService.cs" />
+    <Compile Include="Modules\Search\Services\YtService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\IKioskService.cs" />
+    <Compile Include="Services\KioskHttpService.cs" />
+    <Compile Include="Shard.cs" />
+    <Compile Include="SharedData.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitignore" />
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Extensions\DateTimeExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Modules\Music\Common\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="DSharpPlus">
+      <Version>4.0.0-nightly-00586</Version>
+    </PackageReference>
+    <PackageReference Include="DSharpPlus.CommandsNext">
+      <Version>4.0.0-nightly-00586</Version>
+    </PackageReference>
+    <PackageReference Include="DSharpPlus.Interactivity">
+      <Version>4.0.0-nightly-00586</Version>
+    </PackageReference>
+    <PackageReference Include="DSharpPlus.Rest">
+      <Version>4.0.0-nightly-00586</Version>
+    </PackageReference>
+    <PackageReference Include="DSharpPlus.VoiceNext">
+      <Version>4.0.0-nightly-00586</Version>
+    </PackageReference>
+    <PackageReference Include="DSharpPlus.WebSocket.WebSocketSharp">
+      <Version>4.0.0-nightly-00586</Version>
+    </PackageReference>
+    <PackageReference Include="Emzi0767.Microsoft.DependencyInjection">
+      <Version>2.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Emzi0767.Microsoft.DependencyInjection.Abstractions">
+      <Version>2.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="GiphyDotNet">
+      <Version>1.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Google.Apis">
+      <Version>1.38.2</Version>
+    </PackageReference>
+    <PackageReference Include="Google.Apis.YouTube.v3">
+      <Version>1.38.0.1488</Version>
+    </PackageReference>
+    <PackageReference Include="Humanizer">
+      <Version>2.6.2</Version>
+    </PackageReference>
+    <PackageReference Include="Imgur.API">
+      <Version>5.0.0-beta1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.CSharp">
+      <Version>4.6.0-preview3.19128.7</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Data.Sqlite.Core">
+      <Version>3.0.0-preview3.19153.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.DotNet.PlatformAbstractions">
+      <Version>3.0.0-preview3-27503-5</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore">
+      <Version>3.0.0-preview3.19153.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions">
+      <Version>3.0.0-preview3.19153.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers">
+      <Version>3.0.0-preview3.19153.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design">
+      <Version>3.0.0-preview3.19153.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational">
+      <Version>3.0.0-preview3.19153.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite">
+      <Version>3.0.0-preview3.19153.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Core">
+      <Version>3.0.0-preview3.19153.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer">
+      <Version>3.0.0-preview3.19153.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Caching.Abstractions">
+      <Version>3.0.0-preview3.19153.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory">
+      <Version>3.0.0-preview3.19153.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration">
+      <Version>3.0.0-preview3.19153.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions">
+      <Version>3.0.0-preview3.19153.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder">
+      <Version>3.0.0-preview3.19153.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection">
+      <Version>3.0.0-preview3.19153.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
+      <Version>3.0.0-preview3.19153.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyModel">
+      <Version>3.0.0-preview3-27503-5</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging">
+      <Version>3.0.0-preview3.19153.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions">
+      <Version>3.0.0-preview3.19153.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Options">
+      <Version>3.0.0-preview3.19153.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Primitives">
+      <Version>3.0.0-preview3.19153.1</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.2-beta1</Version>
+    </PackageReference>
+    <PackageReference Include="Npgsql">
+      <Version>4.0.5</Version>
+    </PackageReference>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL">
+      <Version>3.0.0-preview3</Version>
+    </PackageReference>
+    <PackageReference Include="Remotion.Linq">
+      <Version>2.2.0</Version>
+    </PackageReference>
+    <PackageReference Include="SQLitePCLRaw.bundle_e_sqlite3">
+      <Version>1.1.13</Version>
+    </PackageReference>
+    <PackageReference Include="SQLitePCLRaw.core">
+      <Version>1.1.13</Version>
+    </PackageReference>
+    <PackageReference Include="SQLitePCLRaw.lib.e_sqlite3.linux">
+      <Version>1.1.13</Version>
+    </PackageReference>
+    <PackageReference Include="SQLitePCLRaw.lib.e_sqlite3.osx">
+      <Version>1.1.13</Version>
+    </PackageReference>
+    <PackageReference Include="SQLitePCLRaw.lib.e_sqlite3.v110_xp">
+      <Version>1.1.13</Version>
+    </PackageReference>
+    <PackageReference Include="SQLitePCLRaw.provider.e_sqlite3.net45">
+      <Version>1.1.13</Version>
+    </PackageReference>
+    <PackageReference Include="Steam.Models">
+      <Version>3.0.8</Version>
+    </PackageReference>
+    <PackageReference Include="SteamWebAPI2">
+      <Version>4.0.8</Version>
+    </PackageReference>
+    <PackageReference Include="System.Buffers">
+      <Version>4.5.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Collections.Immutable">
+      <Version>1.6.0-preview3.19128.7</Version>
+    </PackageReference>
+    <PackageReference Include="System.ComponentModel.Annotations">
+      <Version>4.6.0-preview3.19128.7</Version>
+    </PackageReference>
+    <PackageReference Include="System.Diagnostics.DiagnosticSource">
+      <Version>4.6.0-preview3.19128.7</Version>
+    </PackageReference>
+    <PackageReference Include="System.Interactive.Async">
+      <Version>4.0.0-preview.1.build.745</Version>
+    </PackageReference>
+    <PackageReference Include="System.Memory">
+      <Version>4.5.2</Version>
+    </PackageReference>
+    <PackageReference Include="System.Numerics.Vectors">
+      <Version>4.6.0-preview3.19128.7</Version>
+    </PackageReference>
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe">
+      <Version>4.6.0-preview3.19128.7</Version>
+    </PackageReference>
+    <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.ServiceModel.Syndication">
+      <Version>4.6.0-preview3.19128.7</Version>
+    </PackageReference>
+    <PackageReference Include="System.Threading.Tasks.Extensions">
+      <Version>4.6.0-preview.18571.3</Version>
+    </PackageReference>
+    <PackageReference Include="System.ValueTuple">
+      <Version>4.5.0</Version>
+    </PackageReference>
+    <PackageReference Include="WebSocketSharp-NonPreRelease">
+      <Version>1.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="YoutubeExplode">
+      <Version>4.6.8</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
