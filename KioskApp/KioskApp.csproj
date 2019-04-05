@@ -140,6 +140,7 @@
     <Compile Include="Modules\Administration\Common\RatelimitSettings.cs" />
     <Compile Include="Modules\Administration\Common\UserRatelimitInfo.cs" />
     <Compile Include="Modules\Administration\Common\UserSpamInfo.cs" />
+    <Compile Include="Modules\Administration\Extensions\AppModule.GuildConfig.cs" />
     <Compile Include="Modules\Administration\Services\AntifloodService.cs" />
     <Compile Include="Modules\Administration\Services\AntiInstantLeaveService.cs" />
     <Compile Include="Modules\Administration\Services\AntispamService.cs" />
@@ -147,6 +148,21 @@
     <Compile Include="Modules\Administration\Services\ProtectionService.cs" />
     <Compile Include="Modules\Administration\Services\RatelimitService.cs" />
     <Compile Include="Modules\AppModule.cs" />
+    <Compile Include="Modules\Chickens\Common\Chicken.cs" />
+    <Compile Include="Modules\Chickens\Common\ChickenStats.cs" />
+    <Compile Include="Modules\Chickens\Common\ChickenUpgrade.cs" />
+    <Compile Include="Modules\Chickens\Common\ChickenWar.cs" />
+    <Compile Include="Modules\Currency\BankModule.cs" />
+    <Compile Include="Modules\Currency\CasinoModule.Lottery.cs" />
+    <Compile Include="Modules\Currency\Common\HoldemGame.cs" />
+    <Compile Include="Modules\Currency\Common\LotteryGame.cs" />
+    <Compile Include="Modules\Currency\Common\WorkHandler.cs" />
+    <Compile Include="Modules\Currency\Extensions\DatabaseContext.Bank.cs" />
+    <Compile Include="Modules\KServiceModule.cs" />
+    <Compile Include="Modules\Music\Common\MusicPlayer.cs" />
+    <Compile Include="Modules\Music\Common\SongInfo.cs" />
+    <Compile Include="Modules\Music\MusicModule.cs" />
+    <Compile Include="Modules\Music\MusicModule.Play.cs" />
     <Compile Include="Modules\Reactions\Common\EmojiReaction.cs" />
     <Compile Include="Modules\Reactions\Common\Reaction.cs" />
     <Compile Include="Modules\Reactions\Common\TextReaction.cs" />
@@ -173,7 +189,11 @@
     <Compile Include="Modules\Search\Services\RssService.cs" />
     <Compile Include="Modules\Search\Services\SteamService.cs" />
     <Compile Include="Modules\Search\Services\WeatherService.cs" />
+    <Compile Include="Modules\Search\Services\XkcdService.cs" />
     <Compile Include="Modules\Search\Services\YtService.cs" />
+    <Compile Include="Modules\Search\SteamModule.cs" />
+    <Compile Include="Modules\Search\WeatherModule.cs" />
+    <Compile Include="Modules\Search\YoutubeModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IKioskService.cs" />
     <Compile Include="Services\KioskHttpService.cs" />
@@ -181,15 +201,12 @@
     <Compile Include="SharedData.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include=".gitignore" />
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\DateTimeExtensions.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Modules\Music\Common\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <PackageReference Include="DSharpPlus">
       <Version>4.0.0-nightly-00586</Version>
@@ -370,6 +387,9 @@
     </PackageReference>
     <PackageReference Include="System.ValueTuple">
       <Version>4.5.0</Version>
+    </PackageReference>
+    <PackageReference Include="TexasHoldemGameEngine">
+      <Version>1.1.0</Version>
     </PackageReference>
     <PackageReference Include="WebSocketSharp-NonPreRelease">
       <Version>1.0.0</Version>

@@ -47,7 +47,7 @@ namespace KioskApp.Modules.Search.Services
                 this.yt = new YouTubeService(new BaseClientService.Initializer()
                 {
                     ApiKey = key,
-                    ApplicationName = TheGodfather.ApplicationName
+                    ApplicationName = KioskApp.ApplicationName
                 });
             }
         }

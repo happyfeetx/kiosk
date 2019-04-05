@@ -19,6 +19,7 @@ using KioskApp.Database;
 using KioskApp.Database.Models;
 using KioskApp.Extensions;
 using KioskApp.Modules.Administration.Common;
+using KioskApp.Modules.Administration.Services;
 using KioskApp.Modules.Reactions.Common;
 
 #endregion USING DIRECTIVES
