@@ -1,0 +1,27 @@
+{
+  "db-config": {
+    "database": "kdb",
+    "provider": 1,
+    "hostname": "localhost",
+    "password": "",
+    "port": 5432,
+    "username": ""
+  },
+  "db_sync_interval": 0,
+  "prefix": "!",
+  "feed_check_interval": 0,
+  "feed_check_start_delay": 0,
+  "key-giphy": null,
+  "key-goodreads": null,
+  "key-imgur": null,
+  "log-level": 4,
+  "log-path": "Logs/log.txt",
+  "log-to-file": false,
+  "key-omdb": null,
+  "shard-count": 1,
+  "key-steam": "<Steam API Key here>",
+  "key-weather": "<OpenWeatherMaps API Key here>",
+  "key-youtube": "<YouTube API Key here>",
+  "token": "NTMyOTcyNjk0MjE2Mzc2MzIw.XKg5bg.XXgoW0FnCGsQA_cvH5SV_CQS_-Y",
+  "logger-special-rules": null
+}
