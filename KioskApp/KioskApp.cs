@@ -32,11 +32,9 @@ namespace KioskApp
 {
     internal static class KioskApp
     {
-        // Strings <<
         public static readonly string ApplicationName = "KioskApp";
 
         public static readonly string ApplicationVersion = "V1.0_TEST_BUILD";
-        // Strings >>
 
         public static IReadOnlyList<KioskAppShard> ActiveShards => Shards.AsReadOnly();
 

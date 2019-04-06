@@ -130,7 +130,9 @@ namespace KioskApp.Modules.Music.Common
             }
             catch (Exception e)
             {
-                // handle exc
+                Console.WriteLine($"\nException occured: {e.GetType()} :\n{e.Message}");
+                if (!(e.InnerException is null))
+                    Console.WriteLine($"Inner exception: {e.InnerException.GetType()} :\n{e.InnerException.Message}");
             }
             finally
             {

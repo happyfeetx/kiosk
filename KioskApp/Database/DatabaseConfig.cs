@@ -22,7 +22,7 @@ namespace KioskApp.Database
         public string Password { get; set; }
 
         [JsonProperty("port")]
-        public uint Port { get; set; }
+        public int Port { get; set; }
 
         [JsonProperty("username")]
         public string Username { get; set; }
@@ -30,10 +30,10 @@ namespace KioskApp.Database
         public static DatabaseConfig Default => new DatabaseConfig
         {
             DatabaseName = "kdb",
-            Provider = DatabaseProvider.PostgreSQL,
+            Provider = DatabaseProvider.SQLite,
             Hostname = "localhost",
             Password = "",
-            Port = 5432,
+            Port = 8844,
             Username = ""
         };
     }

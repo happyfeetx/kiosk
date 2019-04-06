@@ -36,7 +36,7 @@ namespace KioskApp.Database
                     this.ConnectionString = new NpgsqlConnectionStringBuilder()
                     {
                         Host = cfg.Hostname,
-                        Port = (int)cfg.Port,
+                        Port = cfg.Port,
                         Database = cfg.DatabaseName,
                         Username = cfg.Username,
                         Password = cfg.Password,
