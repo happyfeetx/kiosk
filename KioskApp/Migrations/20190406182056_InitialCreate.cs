@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace KioskApp.Migrations
 {
@@ -42,7 +43,7 @@ namespace KioskApp.Migrations
                 columns: table => new
                 {
                     id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     status = table.Column<string>(maxLength: 64, nullable: false),
                     activity_type = table.Column<int>(nullable: false)
                 },
@@ -73,34 +74,20 @@ namespace KioskApp.Migrations
                 columns: table => new
                 {
                     uid = table.Column<long>(nullable: false),
-                    duel_won = table.Column<int>(nullable: false, defaultValue: 0)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    duel_lost = table.Column<int>(nullable: false, defaultValue: 0)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    hangman_won = table.Column<int>(nullable: false, defaultValue: 0)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    quizes_won = table.Column<int>(nullable: false, defaultValue: 0)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    animalraces_won = table.Column<int>(nullable: false, defaultValue: 0)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    numberraces_won = table.Column<int>(nullable: false, defaultValue: 0)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    ttt_won = table.Column<int>(nullable: false, defaultValue: 0)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    ttt_lost = table.Column<int>(nullable: false, defaultValue: 0)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    chain4_won = table.Column<int>(nullable: false, defaultValue: 0)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    chain4_lost = table.Column<int>(nullable: false, defaultValue: 0)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    caro_won = table.Column<int>(nullable: false, defaultValue: 0)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    caro_lost = table.Column<int>(nullable: false, defaultValue: 0)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    othello_won = table.Column<int>(nullable: false, defaultValue: 0)
-                        .Annotation("Sqlite:Autoincrement", true),
+                    duel_won = table.Column<int>(nullable: false, defaultValue: 0),
+                    duel_lost = table.Column<int>(nullable: false, defaultValue: 0),
+                    hangman_won = table.Column<int>(nullable: false, defaultValue: 0),
+                    quizes_won = table.Column<int>(nullable: false, defaultValue: 0),
+                    animalraces_won = table.Column<int>(nullable: false, defaultValue: 0),
+                    numberraces_won = table.Column<int>(nullable: false, defaultValue: 0),
+                    ttt_won = table.Column<int>(nullable: false, defaultValue: 0),
+                    ttt_lost = table.Column<int>(nullable: false, defaultValue: 0),
+                    chain4_won = table.Column<int>(nullable: false, defaultValue: 0),
+                    chain4_lost = table.Column<int>(nullable: false, defaultValue: 0),
+                    caro_won = table.Column<int>(nullable: false, defaultValue: 0),
+                    caro_lost = table.Column<int>(nullable: false, defaultValue: 0),
+                    othello_won = table.Column<int>(nullable: false, defaultValue: 0),
                     othello_lost = table.Column<int>(nullable: false, defaultValue: 0)
-                        .Annotation("Sqlite:Autoincrement", true)
                 },
                 constraints: table =>
                 {
@@ -108,7 +95,7 @@ namespace KioskApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "guild_config",
+                name: "guild_cfg",
                 schema: "gf",
                 columns: table => new
                 {
@@ -116,15 +103,11 @@ namespace KioskApp.Migrations
                     prefix = table.Column<string>(maxLength: 16, nullable: true),
                     currency = table.Column<string>(maxLength: 32, nullable: true),
                     suggestions_enabled = table.Column<bool>(nullable: false, defaultValue: false),
-                    log_cid = table.Column<long>(nullable: true)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    mute_rid = table.Column<long>(nullable: true)
-                        .Annotation("Sqlite:Autoincrement", true),
+                    log_cid = table.Column<long>(nullable: true),
+                    mute_rid = table.Column<long>(nullable: true),
                     silent_response_enabled = table.Column<bool>(nullable: false, defaultValue: false),
-                    welcome_cid = table.Column<long>(nullable: true)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    leave_cid = table.Column<long>(nullable: true)
-                        .Annotation("Sqlite:Autoincrement", true),
+                    welcome_cid = table.Column<long>(nullable: true),
+                    leave_cid = table.Column<long>(nullable: true),
                     welcome_msg = table.Column<string>(maxLength: 128, nullable: true),
                     leave_msg = table.Column<string>(maxLength: 128, nullable: true),
                     linkfilter_enabled = table.Column<bool>(nullable: false, defaultValue: false),
@@ -135,25 +118,20 @@ namespace KioskApp.Migrations
                     linkfilter_shorteners = table.Column<bool>(nullable: false, defaultValue: true),
                     antiflood_enabled = table.Column<bool>(nullable: false, defaultValue: false),
                     antiflood_action = table.Column<byte>(nullable: false, defaultValue: (byte)4),
-                    antiflood_sensitivity = table.Column<short>(nullable: false, defaultValue: (short)5)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    antiflood_cooldown = table.Column<short>(nullable: false, defaultValue: (short)10)
-                        .Annotation("Sqlite:Autoincrement", true),
+                    antiflood_sensitivity = table.Column<short>(nullable: false, defaultValue: (short)5),
+                    antiflood_cooldown = table.Column<short>(nullable: false, defaultValue: (short)10),
                     antiinstantleave_enabled = table.Column<bool>(nullable: false, defaultValue: false),
-                    antiinstantleave_cooldown = table.Column<short>(nullable: false, defaultValue: (short)3)
-                        .Annotation("Sqlite:Autoincrement", true),
+                    antiinstantleave_cooldown = table.Column<short>(nullable: false, defaultValue: (short)3),
                     antispam_enabled = table.Column<bool>(nullable: false, defaultValue: false),
                     antispam_action = table.Column<byte>(nullable: false, defaultValue: (byte)0),
-                    antispam_sensitivity = table.Column<short>(nullable: false, defaultValue: (short)5)
-                        .Annotation("Sqlite:Autoincrement", true),
+                    antispam_sensitivity = table.Column<short>(nullable: false, defaultValue: (short)5),
                     ratelimit_enabled = table.Column<bool>(nullable: false, defaultValue: false),
                     ratelimit_action = table.Column<byte>(nullable: false, defaultValue: (byte)1),
                     ratelimit_sensitivity = table.Column<short>(nullable: false, defaultValue: (short)5)
-                        .Annotation("Sqlite:Autoincrement", true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_guild_config", x => x.gid);
+                    table.PrimaryKey("PK_guild_cfg", x => x.gid);
                 });
 
             migrationBuilder.CreateTable(
@@ -162,7 +140,7 @@ namespace KioskApp.Migrations
                 columns: table => new
                 {
                     id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     content = table.Column<string>(maxLength: 128, nullable: false)
                 },
                 constraints: table =>
@@ -188,7 +166,7 @@ namespace KioskApp.Migrations
                 columns: table => new
                 {
                     id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     uid = table.Column<long>(nullable: false),
                     cid = table.Column<long>(nullable: true),
                     message = table.Column<string>(maxLength: 256, nullable: false),
@@ -207,7 +185,7 @@ namespace KioskApp.Migrations
                 columns: table => new
                 {
                     id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     url = table.Column<string>(nullable: false),
                     last_post_url = table.Column<string>(nullable: false)
                 },
@@ -222,7 +200,7 @@ namespace KioskApp.Migrations
                 columns: table => new
                 {
                     id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     name = table.Column<string>(maxLength: 32, nullable: false),
                     additional_info = table.Column<string>(nullable: true),
                     is_blacklisted = table.Column<bool>(nullable: false, defaultValue: false)
@@ -238,14 +216,13 @@ namespace KioskApp.Migrations
                 columns: table => new
                 {
                     ip = table.Column<string>(maxLength: 16, nullable: false),
-                    join_port = table.Column<int>(nullable: false, defaultValue: 10480)
-                        .Annotation("Sqlite:Autoincrement", true),
+                    join_port = table.Column<int>(nullable: false, defaultValue: 10480),
                     query_port = table.Column<int>(nullable: false),
                     name = table.Column<string>(maxLength: 32, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_swat_servers", x => new { x.ip, x.join_port, x.query_port });
+                    table.PrimaryKey("PK_swat_servers", x => x.ip);
                 });
 
             migrationBuilder.CreateTable(
@@ -255,7 +232,6 @@ namespace KioskApp.Migrations
                 {
                     uid = table.Column<long>(nullable: false),
                     message_count = table.Column<int>(nullable: false, defaultValue: 1)
-                        .Annotation("Sqlite:Autoincrement", true)
                 },
                 constraints: table =>
                 {
@@ -274,10 +250,10 @@ namespace KioskApp.Migrations
                 {
                     table.PrimaryKey("PK_auto_roles", x => new { x.gid, x.rid });
                     table.ForeignKey(
-                        name: "FK_auto_roles_guild_config_gid",
+                        name: "FK_auto_roles_guild_cfg_gid",
                         column: x => x.gid,
                         principalSchema: "gf",
-                        principalTable: "guild_config",
+                        principalTable: "guild_cfg",
                         principalColumn: "gid",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -295,10 +271,10 @@ namespace KioskApp.Migrations
                 {
                     table.PrimaryKey("PK_bank_accounts", x => new { x.gid, x.uid });
                     table.ForeignKey(
-                        name: "FK_bank_accounts_guild_config_gid",
+                        name: "FK_bank_accounts_guild_cfg_gid",
                         column: x => x.gid,
                         principalSchema: "gf",
-                        principalTable: "guild_config",
+                        principalTable: "guild_cfg",
                         principalColumn: "gid",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -318,10 +294,10 @@ namespace KioskApp.Migrations
                 {
                     table.PrimaryKey("PK_birthdays", x => new { x.gid, x.cid, x.uid });
                     table.ForeignKey(
-                        name: "FK_birthdays_guild_config_gid",
+                        name: "FK_birthdays_guild_cfg_gid",
                         column: x => x.gid,
                         principalSchema: "gf",
-                        principalTable: "guild_config",
+                        principalTable: "guild_cfg",
                         principalColumn: "gid",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -342,32 +318,10 @@ namespace KioskApp.Migrations
                 {
                     table.PrimaryKey("PK_chickens", x => new { x.gid, x.uid });
                     table.ForeignKey(
-                        name: "FK_chickens_guild_config_gid",
+                        name: "FK_chickens_guild_cfg_gid",
                         column: x => x.gid,
                         principalSchema: "gf",
-                        principalTable: "guild_config",
-                        principalColumn: "gid",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "cmd_rules",
-                schema: "gf",
-                columns: table => new
-                {
-                    gid = table.Column<long>(nullable: false),
-                    cid = table.Column<long>(nullable: false),
-                    commands = table.Column<string>(maxLength: 32, nullable: false),
-                    allow = table.Column<bool>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_cmd_rules", x => new { x.gid, x.cid, x.commands });
-                    table.ForeignKey(
-                        name: "FK_cmd_rules_guild_config_gid",
-                        column: x => x.gid,
-                        principalSchema: "gf",
-                        principalTable: "guild_config",
+                        principalTable: "guild_cfg",
                         principalColumn: "gid",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -385,10 +339,10 @@ namespace KioskApp.Migrations
                 {
                     table.PrimaryKey("PK_exempt_antispam", x => new { x.xid, x.gid, x.type });
                     table.ForeignKey(
-                        name: "FK_exempt_antispam_guild_config_gid",
+                        name: "FK_exempt_antispam_guild_cfg_gid",
                         column: x => x.gid,
                         principalSchema: "gf",
-                        principalTable: "guild_config",
+                        principalTable: "guild_cfg",
                         principalColumn: "gid",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -406,10 +360,10 @@ namespace KioskApp.Migrations
                 {
                     table.PrimaryKey("PK_exempt_logging", x => new { x.xid, x.gid, x.type });
                     table.ForeignKey(
-                        name: "FK_exempt_logging_guild_config_gid",
+                        name: "FK_exempt_logging_guild_cfg_gid",
                         column: x => x.gid,
                         principalSchema: "gf",
-                        principalTable: "guild_config",
+                        principalTable: "guild_cfg",
                         principalColumn: "gid",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -427,10 +381,10 @@ namespace KioskApp.Migrations
                 {
                     table.PrimaryKey("PK_exempt_ratelimit", x => new { x.xid, x.gid, x.type });
                     table.ForeignKey(
-                        name: "FK_exempt_ratelimit_guild_config_gid",
+                        name: "FK_exempt_ratelimit_guild_cfg_gid",
                         column: x => x.gid,
                         principalSchema: "gf",
-                        principalTable: "guild_config",
+                        principalTable: "guild_cfg",
                         principalColumn: "gid",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -441,7 +395,7 @@ namespace KioskApp.Migrations
                 columns: table => new
                 {
                     id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     gid = table.Column<long>(nullable: false),
                     trigger = table.Column<string>(maxLength: 128, nullable: false)
                 },
@@ -449,32 +403,10 @@ namespace KioskApp.Migrations
                 {
                     table.PrimaryKey("PK_filters", x => x.id);
                     table.ForeignKey(
-                        name: "FK_filters_guild_config_gid",
+                        name: "FK_filters_guild_cfg_gid",
                         column: x => x.gid,
                         principalSchema: "gf",
-                        principalTable: "guild_config",
-                        principalColumn: "gid",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "forbidden_names",
-                schema: "gf",
-                columns: table => new
-                {
-                    id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    gid = table.Column<long>(nullable: false),
-                    name_regex = table.Column<string>(maxLength: 64, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_forbidden_names", x => x.id);
-                    table.ForeignKey(
-                        name: "FK_forbidden_names_guild_config_gid",
-                        column: x => x.gid,
-                        principalSchema: "gf",
-                        principalTable: "guild_config",
+                        principalTable: "guild_cfg",
                         principalColumn: "gid",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -492,10 +424,10 @@ namespace KioskApp.Migrations
                 {
                     table.PrimaryKey("PK_guild_ranks", x => new { x.gid, x.rank });
                     table.ForeignKey(
-                        name: "FK_guild_ranks_guild_config_gid",
+                        name: "FK_guild_ranks_guild_cfg_gid",
                         column: x => x.gid,
                         principalSchema: "gf",
-                        principalTable: "guild_config",
+                        principalTable: "guild_cfg",
                         principalColumn: "gid",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -513,10 +445,10 @@ namespace KioskApp.Migrations
                 {
                     table.PrimaryKey("PK_memes", x => new { x.gid, x.name });
                     table.ForeignKey(
-                        name: "FK_memes_guild_config_gid",
+                        name: "FK_memes_guild_cfg_gid",
                         column: x => x.gid,
                         principalSchema: "gf",
-                        principalTable: "guild_config",
+                        principalTable: "guild_cfg",
                         principalColumn: "gid",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -527,7 +459,7 @@ namespace KioskApp.Migrations
                 columns: table => new
                 {
                     id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     gid = table.Column<long>(nullable: false),
                     name = table.Column<string>(maxLength: 64, nullable: false),
                     price = table.Column<long>(nullable: false)
@@ -536,10 +468,10 @@ namespace KioskApp.Migrations
                 {
                     table.PrimaryKey("PK_purchasable_items", x => x.id);
                     table.ForeignKey(
-                        name: "FK_purchasable_items_guild_config_gid",
+                        name: "FK_purchasable_items_guild_cfg_gid",
                         column: x => x.gid,
                         principalSchema: "gf",
-                        principalTable: "guild_config",
+                        principalTable: "guild_cfg",
                         principalColumn: "gid",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -550,7 +482,7 @@ namespace KioskApp.Migrations
                 columns: table => new
                 {
                     id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     gid = table.Column<long>(nullable: false),
                     reaction = table.Column<string>(maxLength: 128, nullable: false)
                 },
@@ -558,10 +490,10 @@ namespace KioskApp.Migrations
                 {
                     table.PrimaryKey("PK_reactions_emoji", x => x.id);
                     table.ForeignKey(
-                        name: "FK_reactions_emoji_guild_config_gid",
+                        name: "FK_reactions_emoji_guild_cfg_gid",
                         column: x => x.gid,
                         principalSchema: "gf",
-                        principalTable: "guild_config",
+                        principalTable: "guild_cfg",
                         principalColumn: "gid",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -572,7 +504,7 @@ namespace KioskApp.Migrations
                 columns: table => new
                 {
                     id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     gid = table.Column<long>(nullable: false),
                     response = table.Column<string>(maxLength: 128, nullable: false)
                 },
@@ -580,10 +512,10 @@ namespace KioskApp.Migrations
                 {
                     table.PrimaryKey("PK_reactions_text", x => x.id);
                     table.ForeignKey(
-                        name: "FK_reactions_text_guild_config_gid",
+                        name: "FK_reactions_text_guild_cfg_gid",
                         column: x => x.gid,
                         principalSchema: "gf",
-                        principalTable: "guild_config",
+                        principalTable: "guild_cfg",
                         principalColumn: "gid",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -594,7 +526,7 @@ namespace KioskApp.Migrations
                 columns: table => new
                 {
                     id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     gid = table.Column<long>(nullable: false),
                     uid = table.Column<long>(nullable: false),
                     rid = table.Column<long>(nullable: true),
@@ -605,10 +537,10 @@ namespace KioskApp.Migrations
                 {
                     table.PrimaryKey("PK_saved_tasks", x => x.id);
                     table.ForeignKey(
-                        name: "FK_saved_tasks_guild_config_gid",
+                        name: "FK_saved_tasks_guild_cfg_gid",
                         column: x => x.gid,
                         principalSchema: "gf",
-                        principalTable: "guild_config",
+                        principalTable: "guild_cfg",
                         principalColumn: "gid",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -625,10 +557,10 @@ namespace KioskApp.Migrations
                 {
                     table.PrimaryKey("PK_self_roles", x => new { x.gid, x.rid });
                     table.ForeignKey(
-                        name: "FK_self_roles_guild_config_gid",
+                        name: "FK_self_roles_guild_cfg_gid",
                         column: x => x.gid,
                         principalSchema: "gf",
-                        principalTable: "guild_config",
+                        principalTable: "guild_cfg",
                         principalColumn: "gid",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -647,10 +579,10 @@ namespace KioskApp.Migrations
                 {
                     table.PrimaryKey("PK_rss_subscriptions", x => new { x.id, x.gid, x.cid });
                     table.ForeignKey(
-                        name: "FK_rss_subscriptions_guild_config_gid",
+                        name: "FK_rss_subscriptions_guild_cfg_gid",
                         column: x => x.gid,
                         principalSchema: "gf",
-                        principalTable: "guild_config",
+                        principalTable: "guild_cfg",
                         principalColumn: "gid",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -715,10 +647,10 @@ namespace KioskApp.Migrations
                 {
                     table.PrimaryKey("PK_chicken_bought_upgrades", x => new { x.id, x.gid, x.uid });
                     table.ForeignKey(
-                        name: "FK_chicken_bought_upgrades_guild_config_gid",
+                        name: "FK_chicken_bought_upgrades_guild_cfg_gid",
                         column: x => x.gid,
                         principalSchema: "gf",
-                        principalTable: "guild_config",
+                        principalTable: "guild_cfg",
                         principalColumn: "gid",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -828,12 +760,6 @@ namespace KioskApp.Migrations
                 column: "gid");
 
             migrationBuilder.CreateIndex(
-                name: "IX_forbidden_names_gid",
-                schema: "gf",
-                table: "forbidden_names",
-                column: "gid");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_purchasable_items_gid",
                 schema: "gf",
                 table: "purchasable_items",
@@ -874,13 +800,6 @@ namespace KioskApp.Migrations
                 schema: "gf",
                 table: "swat_ips",
                 column: "id");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_swat_players_name",
-                schema: "gf",
-                table: "swat_players",
-                column: "name",
-                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -914,10 +833,6 @@ namespace KioskApp.Migrations
                 schema: "gf");
 
             migrationBuilder.DropTable(
-                name: "cmd_rules",
-                schema: "gf");
-
-            migrationBuilder.DropTable(
                 name: "exempt_antispam",
                 schema: "gf");
 
@@ -931,10 +846,6 @@ namespace KioskApp.Migrations
 
             migrationBuilder.DropTable(
                 name: "filters",
-                schema: "gf");
-
-            migrationBuilder.DropTable(
-                name: "forbidden_names",
                 schema: "gf");
 
             migrationBuilder.DropTable(
@@ -1030,7 +941,7 @@ namespace KioskApp.Migrations
                 schema: "gf");
 
             migrationBuilder.DropTable(
-                name: "guild_config",
+                name: "guild_cfg",
                 schema: "gf");
         }
     }

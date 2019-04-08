@@ -11,16 +11,40 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		KioskApp\bin\Debug\netcoreapp2.2\Resources\config.json = KioskApp\bin\Debug\netcoreapp2.2\Resources\config.json
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Antumbra", "Antumbra\Antumbra.vcxproj", "{F68C024C-4742-4605-8134-7986A180744C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{BB384AEB-6082-48D9-80F1-3BB81EE2FFAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BB384AEB-6082-48D9-80F1-3BB81EE2FFAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB384AEB-6082-48D9-80F1-3BB81EE2FFAD}.Debug|x64.ActiveCfg = Debug|x64
+		{BB384AEB-6082-48D9-80F1-3BB81EE2FFAD}.Debug|x64.Build.0 = Debug|x64
+		{BB384AEB-6082-48D9-80F1-3BB81EE2FFAD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BB384AEB-6082-48D9-80F1-3BB81EE2FFAD}.Debug|x86.Build.0 = Debug|Any CPU
 		{BB384AEB-6082-48D9-80F1-3BB81EE2FFAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB384AEB-6082-48D9-80F1-3BB81EE2FFAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB384AEB-6082-48D9-80F1-3BB81EE2FFAD}.Release|x64.ActiveCfg = Release|x64
+		{BB384AEB-6082-48D9-80F1-3BB81EE2FFAD}.Release|x64.Build.0 = Release|x64
+		{BB384AEB-6082-48D9-80F1-3BB81EE2FFAD}.Release|x86.ActiveCfg = Release|Any CPU
+		{BB384AEB-6082-48D9-80F1-3BB81EE2FFAD}.Release|x86.Build.0 = Release|Any CPU
+		{F68C024C-4742-4605-8134-7986A180744C}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{F68C024C-4742-4605-8134-7986A180744C}.Debug|x64.ActiveCfg = Debug|x64
+		{F68C024C-4742-4605-8134-7986A180744C}.Debug|x64.Build.0 = Debug|x64
+		{F68C024C-4742-4605-8134-7986A180744C}.Debug|x86.ActiveCfg = Debug|Win32
+		{F68C024C-4742-4605-8134-7986A180744C}.Debug|x86.Build.0 = Debug|Win32
+		{F68C024C-4742-4605-8134-7986A180744C}.Release|Any CPU.ActiveCfg = Release|Win32
+		{F68C024C-4742-4605-8134-7986A180744C}.Release|x64.ActiveCfg = Release|x64
+		{F68C024C-4742-4605-8134-7986A180744C}.Release|x64.Build.0 = Release|x64
+		{F68C024C-4742-4605-8134-7986A180744C}.Release|x86.ActiveCfg = Release|Win32
+		{F68C024C-4742-4605-8134-7986A180744C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using KioskApp.Database;
@@ -9,15 +10,16 @@ using KioskApp.Database;
 namespace KioskApp.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20181228223800_Swat4ServersPK")]
+    partial class Swat4ServersPK
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasDefaultSchema("gf")
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn)
-                .HasAnnotation("ProductVersion", "3.0.0-preview.18572.1")
+                .HasAnnotation("ProductVersion", "2.2.0-rtm-35687")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             modelBuilder.Entity("TheGodfather.Database.Entities.DatabaseAutoRole", b =>
@@ -190,26 +192,6 @@ namespace KioskApp.Migrations
                 b.HasKey("Id");
 
                 b.ToTable("chicken_upgrades");
-            });
-
-            modelBuilder.Entity("TheGodfather.Database.Entities.DatabaseCommandRule", b =>
-            {
-                b.Property<long>("GuildIdDb")
-                    .HasColumnName("gid");
-
-                b.Property<long>("ChannelIdDb")
-                    .HasColumnName("cid");
-
-                b.Property<string>("Command")
-                    .HasColumnName("commands")
-                    .HasMaxLength(32);
-
-                b.Property<bool>("Allowed")
-                    .HasColumnName("allow");
-
-                b.HasKey("GuildIdDb", "ChannelIdDb", "Command");
-
-                b.ToTable("cmd_rules");
             });
 
             modelBuilder.Entity("TheGodfather.Database.Entities.DatabaseEmojiReaction", b =>
@@ -978,14 +960,6 @@ namespace KioskApp.Migrations
                 b.HasOne("TheGodfather.Database.Entities.DatabaseChicken", "DbChicken")
                     .WithMany("DbUpgrades")
                     .HasForeignKey("GuildIdDb", "UserIdDb")
-                    .OnDelete(DeleteBehavior.Cascade);
-            });
-
-            modelBuilder.Entity("TheGodfather.Database.Entities.DatabaseCommandRule", b =>
-            {
-                b.HasOne("TheGodfather.Database.Entities.DatabaseGuildConfig", "DbGuildConfig")
-                    .WithMany()
-                    .HasForeignKey("GuildIdDb")
                     .OnDelete(DeleteBehavior.Cascade);
             });
 
